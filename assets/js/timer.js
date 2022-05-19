@@ -3,10 +3,8 @@ contenitoreMain = document.querySelector('#timer');
 h = document.querySelector('#hour');
 m = document.querySelector('#minute');
 s = document.querySelector('#second');
-newTimerContainer = document.querySelector('#initialize');
 startTimer = document.querySelector('#newTimer');
-errorTimer=document.querySelector('#errorTimer');
-errorTimer.style.visibility="hidden";
+errorTimer=document.querySelector('.hideError');
 
 //Creazione variabile per le istanze dell'oggetto Timer
 contenitoreTimer = [];
@@ -140,11 +138,13 @@ startTimer.addEventListener('click', () => {
     second=document.querySelector('#setSecond').value;
 
     if(hour=='' && minute=='' && second==''){
-        errorTimer.style.visibility="visible";
+        errorTimer.classList.remove('hideError');
+        errorTimer.classList.add('showError');
 
     }
     else{
-        errorTimer.style.visibility="hidden";
+        errorTimer.classList.remove('showError');
+        errorTimer.classList.add('hideError');        
         contenitoreMain.style.display = 'block';
         startTimer.style.display = 'none';
         contenitoreTimer.push(new Timer());
