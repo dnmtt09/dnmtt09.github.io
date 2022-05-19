@@ -27,7 +27,12 @@ body{
     background: linear-gradient( rgb(241, 169, 169), rgb(123, 23, 23), white 100%);
 }
 
-#initialize{
+.hideError{
+    display: none;
+}
+
+.showError{
+    display:block;
     border:2px solid white;
     border-radius: 10px;
     box-shadow: 10px 10px 10px 10px #dedede;
