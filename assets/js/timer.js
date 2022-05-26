@@ -148,7 +148,7 @@ class Timer {
 
 }
 
-function slide() {
+/*function slide() {
     if(firstChoice.className == "slideup" ){
         firstChoice.classList.add( "slidedown" );
         firstChoice.classList.remove( "slideup" );
@@ -156,7 +156,7 @@ function slide() {
         firstChoice.classList.add( "slideup" );
         firstChoice.classList.remove( "slidedown" );
     }
-}
+}*/
 
 function partiTimer(tipoTimer){
     setTimeout(() => {    
@@ -195,7 +195,8 @@ function partiTimer(tipoTimer){
 }
 
 startTomato.addEventListener('click',()=>{
-    slide();
+    //slide();
+    firstChoice.classList.add('hide');
     partiTimer(true);
     
     
@@ -237,5 +238,6 @@ stopTimer.addEventListener('click',()=>{
     countDown.classList.remove('showCountDown');
     button.classList.add('hide');
     button.classList.remove('show');
-    slide();
+    firstChoice.classList.remove('hide');
+    firstChoice.classList.add('show');
 })
