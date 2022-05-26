@@ -45,3 +45,12 @@ img{
 section .row{
     position:relative;
 }
+
+.slideup, .slidedown {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s;
+}
+.slidedown {
+    height: 30px;
+}
