@@ -7,6 +7,8 @@ startTimer = document.querySelector('#newTimer');
 errorTimer=document.querySelector('.hideError');
 firstChoice = document.querySelector(".firstChoice");
 startTomato=document.querySelector('#startTomato');
+button=document.querySelector('#button');//section che comprende i pulsanti
+//di puasa e stop
 
 //Creazione variabile per le istanze dell'oggetto Timer
 contenitoreTimer = [];
@@ -145,6 +147,8 @@ function partiTimer(tipoTimer){
     setTimeout(() => {    
         countDown.classList.remove('hideCountDown');
         countDown.classList.add('showCountDown');
+        button.classList.remove('hide');
+        button.classList.add('show');
         },1000);
         contenitoreTimer.push(new Timer());
         if(tipoTimer){//viene impostata la tecnica del pomodoro
