@@ -134,6 +134,7 @@ class Timer {
     //Metodo che si preoccupa di far bloccare effettivamente il timer
     _fermaContare() {
         clearInterval(this.count);
+        this.count=null;
     }
 
     //Metodo che si preoccupa di mettere in pausa il timer
@@ -215,9 +216,15 @@ startTimer.addEventListener('click', () => {
 })
 
 pauseTimer.addEventListener('click',()=>{
-    console.log(contenitoreTimer[i-1].getStartTimer());
-    pauseTimer.innerText='RESTART';
-    contenitoreTimer[i-1].stopAndPause();
+    if(contenitoreTimer[i-1].getStartTimer()===null){
+        pauseTimer.innerText='RESTART';
+        contenitoreTimer[i-1].stopAndPause();
+    }
+    else{
+        pauseTimer.innerText='PAUSE';
+        contenitoreTimer[i-1].start();
+    }
+
 })
 
 stopTimer.addEventListener('click',()=>{
