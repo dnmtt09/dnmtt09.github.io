@@ -14,7 +14,7 @@ i = 0;
 Nascondere quando parte l'applicativo il count-down
 il main con id Timer
 */
-countDown.style.display = 'none';
+errorTimer.classList.add('hideCountDown');
 
 //Creazione classe Timer
 class Timer {
@@ -145,7 +145,8 @@ startTimer.addEventListener('click', () => {
     else{
         errorTimer.classList.remove('showError');
         errorTimer.classList.add('hideError');        
-        countDown.style.display = 'block';
+        countDown.classList.remove('hideCountDown');
+        countDown.classList.add('showCountDown');
         startTimer.style.display = 'none';
         contenitoreTimer.push(new Timer());
         if(hour==''){
