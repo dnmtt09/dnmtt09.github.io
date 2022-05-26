@@ -216,7 +216,7 @@ startTimer.addEventListener('click', () => {
 })
 
 pauseTimer.addEventListener('click',()=>{
-    if(contenitoreTimer[i-1].getStartTimer()===null){
+    if(contenitoreTimer[i-1].getStartTimer()!=null){
         pauseTimer.innerText='RESTART';
         contenitoreTimer[i-1].stopAndPause();
     }
