@@ -9,6 +9,8 @@ firstChoice = document.querySelector(".firstChoice");
 startTomato=document.querySelector('#startTomato');
 button=document.querySelector('#button');//section che comprende i pulsanti
 //di puasa e stop
+pauseTimer=document.querySelector('#pause');
+stopTimer=document.querySelector('#stop');
 
 //Creazione variabile per le istanze dell'oggetto Timer
 contenitoreTimer = [];
@@ -110,7 +112,7 @@ class Timer {
                         this.hour--;
                     }
                     if (this.hour == 0 && this.minute == 0 && this.second == 0) {
-                        this.stop();
+                        this.stopAndPause();
                     }
                 }
             }, 1000)
@@ -118,7 +120,7 @@ class Timer {
     }
 
     //Metodo per far fermare il timer
-    stop() {
+    stopAndPause() {
         this.startTimer = false;
         this._fermaContare();
     }
@@ -127,6 +129,8 @@ class Timer {
     _fermaContare() {
         clearInterval(this.count);
     }
+
+    //Metodo che si preoccupa di mettere in pausa il timer
 
     //Metodo che si preoccupa di mostrare quanto manca al timer
     _mostraTimer() {
@@ -202,4 +206,17 @@ startTimer.addEventListener('click', () => {
         startTimer.style.display = 'none';
         partiTimer(false);
     }
+})
+
+pauseTimer.addEventListener('click',()=>{
+    pauseTimer.innerText='RESTART';
+    contenitoreTimer[i].stopAndPause();
+})
+
+stopTimer.addEventListener('click',()=>{
+    contenitoreTimer[i].stopAndPause();
+    countDown.classList.add('hideCountDown');
+    countDown.classList.remove('showCountDown');
+    button.classList.add('hide');
+    button.classList.remove('show');
 })
