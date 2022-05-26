@@ -135,7 +135,7 @@ class Timer {
 }
 
 function slide() {
-    firstChoice.className == "slideup" ? e.className = "slidedown" : e.className = "slideup";
+    firstChoice.className == "slideup" ? firstChoice.className = "slidedown" : firstChoice.className = "slideup";
 }
 
 startTimer.addEventListener('click', () => {
