@@ -130,6 +130,12 @@ class Timer {
         m.innerText = this.minute;
         s.innerText = this.second;
     }
+
+}
+
+function slide() {
+    var e = document.getElementById("elemento");
+    e.className == "slideup" ? e.className = "slidedown" : e.className = "slideup";
 }
 
 startTimer.addEventListener('click', () => {
