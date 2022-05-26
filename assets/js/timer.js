@@ -144,9 +144,11 @@ startTimer.addEventListener('click', () => {
     }
     else{
         errorTimer.classList.remove('showError');
-        errorTimer.classList.add('hideError');        
+        errorTimer.classList.add('hideError');  
+        setTimeout(() => {    
         countDown.classList.remove('hideCountDown');
         countDown.classList.add('showCountDown');
+        },1000);
         startTimer.style.display = 'none';
         contenitoreTimer.push(new Timer());
         if(hour==''){
