@@ -5,6 +5,7 @@ m = document.querySelector('#minute');
 s = document.querySelector('#second');
 startTimer = document.querySelector('#newTimer');
 errorTimer=document.querySelector('.hideError');
+firstChoice = document.querySelector(".firstChoice");
 
 //Creazione variabile per le istanze dell'oggetto Timer
 contenitoreTimer = [];
@@ -130,6 +131,11 @@ class Timer {
         m.innerText = this.minute;
         s.innerText = this.second;
     }
+
+}
+
+function slide() {
+    firstChoice.className == "slideup" ? e.className = "slidedown" : e.className = "slideup";
 }
 
 startTimer.addEventListener('click', () => {
@@ -148,6 +154,7 @@ startTimer.addEventListener('click', () => {
         setTimeout(() => {    
         countDown.classList.remove('hideCountDown');
         countDown.classList.add('showCountDown');
+        slide();
         },1000);
         startTimer.style.display = 'none';
         contenitoreTimer.push(new Timer());
