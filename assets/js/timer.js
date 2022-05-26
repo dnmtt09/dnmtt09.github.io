@@ -13,8 +13,8 @@ pauseTimer=document.querySelector('#pause');
 stopTimer=document.querySelector('#stop');
 
 //Creazione variabile per le istanze dell'oggetto Timer
-contenitoreTimer = [];
-i = 0;
+var contenitoreTimer = [];
+var i = 0;
 
 /*
 Nascondere quando parte l'applicativo il count-down
