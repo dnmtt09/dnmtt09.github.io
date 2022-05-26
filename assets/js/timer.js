@@ -233,4 +233,5 @@ stopTimer.addEventListener('click',()=>{
     countDown.classList.remove('showCountDown');
     button.classList.add('hide');
     button.classList.remove('show');
+    slide();
 })
