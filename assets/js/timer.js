@@ -1,5 +1,5 @@
 //Dichiarazione variabili html
-contenitoreMain = document.querySelector('#timer');
+countDown = document.querySelector('#timer');
 h = document.querySelector('#hour');
 m = document.querySelector('#minute');
 s = document.querySelector('#second');
@@ -14,7 +14,7 @@ i = 0;
 Nascondere quando parte l'applicativo il count-down
 il main con id Timer
 */
-contenitoreMain.style.display = 'none';
+errorTimer.classList.add('hideCountDown');
 
 //Creazione classe Timer
 class Timer {
@@ -145,7 +145,8 @@ startTimer.addEventListener('click', () => {
     else{
         errorTimer.classList.remove('showError');
         errorTimer.classList.add('hideError');        
-        contenitoreMain.style.display = 'block';
+        countDown.classList.remove('hideCountDown');
+        countDown.classList.add('showCountDown');
         startTimer.style.display = 'none';
         contenitoreTimer.push(new Timer());
         if(hour==''){
