@@ -149,9 +149,13 @@ class Timer {
 }
 
 function slide() {
-    firstChoice.className == "slideup" ? 
-    firstChoice.className = "slidedown" : 
-    firstChoice.className = "slideup";
+    if(firstChoice.className == "slideup" ){
+        firstChoice.className.add( "slidedown" );
+        firstChoice.className.remove( "slideup" );
+    }else{
+        firstChoice.className.add( "slideup" );
+        firstChoice.className.remove( "slidedown" );
+    }
 }
 
 function partiTimer(tipoTimer){
