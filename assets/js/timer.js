@@ -150,11 +150,11 @@ class Timer {
 
 function slide() {
     if(firstChoice.className == "slideup" ){
-        firstChoice.className.add( "slidedown" );
-        firstChoice.className.remove( "slideup" );
+        firstChoice.classList.add( "slidedown" );
+        firstChoice.classList.remove( "slideup" );
     }else{
-        firstChoice.className.add( "slideup" );
-        firstChoice.className.remove( "slidedown" );
+        firstChoice.classList.add( "slideup" );
+        firstChoice.classList.remove( "slidedown" );
     }
 }
 
