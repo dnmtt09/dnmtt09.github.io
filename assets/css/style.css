@@ -24,7 +24,7 @@ body{
 }
 
 .hideCountDown{
-    visibility: visible;
+    visibility: hidden;
 }
 
 .initialize{
