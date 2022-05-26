@@ -86,6 +86,12 @@ class Timer {
      */
     getSecond() { return this.second; }
 
+    /**
+     * Metodo per sapere se il timer e' partito o no
+     * @returns {count}
+     */
+    getStartTimer(){return this.count;}
+
     //Metodo per far partire il timer
     start() {
         this.startTimer = true;
@@ -209,12 +215,13 @@ startTimer.addEventListener('click', () => {
 })
 
 pauseTimer.addEventListener('click',()=>{
+    console.log(contenitoreTimer[i-1].getStartTimer());
     pauseTimer.innerText='RESTART';
-    contenitoreTimer[i].stopAndPause();
+    contenitoreTimer[i-1].stopAndPause();
 })
 
 stopTimer.addEventListener('click',()=>{
-    contenitoreTimer[i].stopAndPause();
+    contenitoreTimer[i-1].stopAndPause();
     countDown.classList.add('hideCountDown');
     countDown.classList.remove('showCountDown');
     button.classList.add('hide');
