@@ -188,13 +188,13 @@ startTimer.addEventListener('click', () => {
     second=document.querySelector('#setSecond').value;
 
     if(hour=='' && minute=='' && second==''){
-        errorTimer.classList.remove('hideError');
-        errorTimer.classList.add('showError');
+        errorTimer.classList.remove('hide');
+        errorTimer.classList.add('show');
 
     }
     else{
-        errorTimer.classList.remove('showError');
-        errorTimer.classList.add('hideError');  
+        errorTimer.classList.remove('show');
+        errorTimer.classList.add('hide');  
         startTimer.style.display = 'none';
         partiTimer(false);
     }
