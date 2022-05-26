@@ -6,6 +6,7 @@ s = document.querySelector('#second');
 startTimer = document.querySelector('#newTimer');
 errorTimer=document.querySelector('.hideError');
 firstChoice = document.querySelector(".firstChoice");
+startTomato=document.querySelector('#startTomato');
 
 //Creazione variabile per le istanze dell'oggetto Timer
 contenitoreTimer = [];
@@ -135,8 +136,51 @@ class Timer {
 }
 
 function slide() {
-    firstChoice.className == "slideup" ? firstChoice.className = "slidedown" : firstChoice.className = "slideup";
+    firstChoice.className == "slideup" ? 
+    firstChoice.className = "slidedown" : 
+    firstChoice.className = "slideup";
 }
+
+function partiTimer(tipoTimer){
+    setTimeout(() => {    
+        countDown.classList.remove('hideCountDown');
+        countDown.classList.add('showCountDown');
+        },1000);
+        contenitoreTimer.push(new Timer());
+        if(tipoTimer){//viene impostata la tecnica del pomodoro
+            contenitoreTimer[i].setHour(0);
+            contenitoreTimer[i].setMinute(25);
+            contenitoreTimer[i].setSecond(0);
+        }
+        else{//altrimenti viene chiesto all'utente
+            //mediante input di inserire un timer
+            if(hour==''){
+                contenitoreTimer[i].setHour(0);
+            }
+            else{
+                contenitoreTimer[i].setHour(hour);
+            }
+                if(minute==''){
+                contenitoreTimer[i].setMinute(0);
+            }else{
+                contenitoreTimer[i].setMinute(minute);
+            }
+            if(second==''){
+                contenitoreTimer[i].setSecond(0);
+            }else{
+                contenitoreTimer[i].setSecond(second);
+            }
+        }
+        contenitoreTimer[i].start();
+        i++;
+}
+
+startTomato.addEventListener('click',()=>{
+    slide();
+    partiTimer(true);
+    
+    
+})
 
 startTimer.addEventListener('click', () => {
     hour=document.querySelector('#setHour').value;
@@ -151,30 +195,7 @@ startTimer.addEventListener('click', () => {
     else{
         errorTimer.classList.remove('showError');
         errorTimer.classList.add('hideError');  
-        setTimeout(() => {    
-        countDown.classList.remove('hideCountDown');
-        countDown.classList.add('showCountDown');
-        slide();
-        },1000);
         startTimer.style.display = 'none';
-        contenitoreTimer.push(new Timer());
-        if(hour==''){
-            contenitoreTimer[i].setHour(0);
-        }
-        else{
-            contenitoreTimer[i].setHour(hour);
-        }
-            if(minute==''){
-            contenitoreTimer[i].setMinute(0);
-        }else{
-            contenitoreTimer[i].setMinute(minute);
-        }
-        if(second==''){
-            contenitoreTimer[i].setSecond(0);
-        }else{
-            contenitoreTimer[i].setSecond(second);
-        }
-        contenitoreTimer[i].start();
-        i++;
+        partiTimer(false);
     }
 })
