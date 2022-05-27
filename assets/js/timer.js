@@ -224,6 +224,7 @@ startTimer.addEventListener('click', () => {
         errorTimer.classList.remove('show');
         errorTimer.classList.add('hide');  
         startTimer.classList.add('hide');
+        setTimer.classList.add('hide');
         partiTimer(false);
     }
 })
