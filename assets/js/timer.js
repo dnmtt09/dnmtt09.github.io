@@ -223,7 +223,7 @@ startTimer.addEventListener('click', () => {
     else{
         errorTimer.classList.remove('show');
         errorTimer.classList.add('hide');  
-        startTimer.style.display = 'none';
+        startTimer.classList.add('hide');
         partiTimer(false);
     }
 })
