@@ -261,5 +261,7 @@ stopTimer.addEventListener('click',()=>{
 })
 
 navRecentTimer.addEventListener('click',()=>{
-    
+    countDown.classList.add('hideCountDown');
+    button.classList.add('hide');
+    firstChoice.classList.remove('add');
 })
