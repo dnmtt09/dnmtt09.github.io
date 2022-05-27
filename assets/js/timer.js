@@ -5,6 +5,7 @@ m = document.querySelector('#minute');
 s = document.querySelector('#second');
 startTimer = document.querySelector('#startTimer');
 createTimer = document.querySelector('#createTimer');
+setTimer=document.querySelector('#setTimer');
 errorTimer=document.querySelector('.hideError');
 firstChoice = document.querySelector(".firstChoice");
 startTomato=document.querySelector('#startTomato');
@@ -223,6 +224,7 @@ startTimer.addEventListener('click', () => {
 
 createTimer.addEventListener('click',()=>{
     firstChoice.classList.add('hide');
+    setTimer.classList.remove('hide');
     
 })
 
