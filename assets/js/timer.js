@@ -18,6 +18,12 @@ stopTimer=document.querySelector('#stop');
 var contenitoreTimer = [];
 var i = 0;
 
+/*All'inizio nascondo il messaggio di errore.
+Verrà mostrato quando l'utente inserisce un timer vuoto*/
+
+errorTimer.classList.add('hide');
+
+
 /*
 Nascondere quando parte l'applicativo il count-down
 il main con id Timer
