@@ -14,6 +14,10 @@ button=document.querySelector('#button');//section che comprende i pulsanti
 pauseTimer=document.querySelector('#pause');
 stopTimer=document.querySelector('#stop');
 
+//Variabili collegamenti navbar
+navNewTimer=document.querySelector('#navNewTimer');
+navRecentTimer=document.querySelector('#navRecentTimer');
+
 //Creazione variabile per le istanze dell'oggetto Timer
 var contenitoreTimer = [];
 var i = 0;
@@ -254,4 +258,10 @@ stopTimer.addEventListener('click',()=>{
     button.classList.add('hide');
     button.classList.remove('show');
     firstChoice.classList.remove('hide');
+})
+
+navRecentTimer.addEventListener('click',()=>{
+    countDown.classList.add('hideCountDown');
+    button.classList.add('hide');
+    firstChoice.classList.remove('add');
 })
