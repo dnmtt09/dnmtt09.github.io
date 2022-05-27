@@ -63,6 +63,24 @@
             </section>
 
             <section class="container initialize">
+
+                <aside id="setTimer" class="hide">
+                    <label for="setHour">Hour</label>
+                    <input type="number" id="setHour">
+        
+                    <label for="setMinute">Minute</label>
+                    <input type="number" id="setMinute">
+        
+                    <label for="setSecond">Second</label>
+                    <input type="number" id="setSecond">
+        
+                    <button id="startTimer">Set new Timer!</button>
+        
+                    <aside class="hideError">
+                        <p class="alert-danger text-center m-5 p-5">Errore. Inserire timer</p>
+                    </aside>
+                </aside>
+
                 <section class="container" id="timer">
                     <div class="row">
                         <div class="col-4">
@@ -124,22 +142,6 @@
             </section>
         </main>
 
-        <aside id="setTimer">
-            <label for="setHour">Hour</label>
-            <input type="number" id="setHour">
-
-            <label for="setMinute">Minute</label>
-            <input type="number" id="setMinute">
-
-            <label for="setSecond">Second</label>
-            <input type="number" id="setSecond">
-
-            <button id="startTimer">Set new Timer!</button>
-
-            <aside class="hideError">
-                <p class="alert-danger text-center m-5 p-5">Errore. Inserire timer</p>
-            </aside>
-        </aside>
 
         <footer>
 
