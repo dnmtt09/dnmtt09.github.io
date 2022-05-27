@@ -5,18 +5,15 @@ m = document.querySelector('#minute');
 s = document.querySelector('#second');
 startTimer = document.querySelector('#startTimer');
 createTimer = document.querySelector('#createTimer');
-setTimer=document.querySelector('#setTimer');
-errorTimer=document.querySelector('.hideError');
+setTimer = document.querySelector('#setTimer');
+errorTimer = document.querySelector('.hideError');
 firstChoice = document.querySelector(".firstChoice");
-startTomato=document.querySelector('#startTomato');
-button=document.querySelector('#button');//section che comprende i pulsanti
+startTomato = document.querySelector('#startTomato');
+button = document.querySelector('#button');//section che comprende i pulsanti
 //di puasa e stop
-pauseTimer=document.querySelector('#pause');
-stopTimer=document.querySelector('#stop');
+pauseTimer = document.querySelector('#pause');
+stopTimer = document.querySelector('#stop');
 
-//Variabili collegamenti navbar
-navNewTimer=document.querySelector('#navNewTimer');
-navRecentTimer=document.querySelector('#navRecentTimer');
 
 //Creazione variabile per le istanze dell'oggetto Timer
 var contenitoreTimer = [];
@@ -102,7 +99,7 @@ class Timer {
      * Metodo per sapere se il timer e' partito o no
      * @returns {count}
      */
-    getStatusTimer(){return this.count;}
+    getStatusTimer() { return this.count; }
 
     //Metodo per far partire il timer
     start() {
@@ -115,10 +112,13 @@ class Timer {
         if (this.statusTimer) {
             this.count = setInterval(() => {
                 this._mostraTimer();
+                if (this.hour == 0 && this.minute == 0 && this.second == 0) {
+                    this.stopAndPause();
+                }
                 if (this.second > 0) {
                     this.second--;
-                }else{
-                    if(this.second==0){
+                } else {
+                    if (this.second == 0) {
                         this.second = 59;
                     }
                     if (this.minute > 0 && this.second == 59) {
@@ -128,9 +128,6 @@ class Timer {
                     }
                     if (this.hour > 0 && this.minute == 59) {
                         this.hour--;
-                    }
-                    if (this.hour == 0 && this.minute == 0 && this.second == 0) {
-                        this.stopAndPause();
                     }
                 }
             }, 1000)
@@ -146,7 +143,7 @@ class Timer {
     //Metodo che si preoccupa di far bloccare effettivamente il timer
     _fermaContare() {
         clearInterval(this.count);
-        this.count=null;
+        this.count = null;
     }
 
     //Metodo che si preoccupa di mettere in pausa il timer
@@ -170,98 +167,92 @@ class Timer {
     }
 }*/
 
-function partiTimer(tipoTimer){
-    setTimeout(() => {    
+function partiTimer(tipoTimer) {
+    setTimeout(() => {
         countDown.classList.remove('hideCountDown');
         countDown.classList.add('showCountDown');
         button.classList.remove('hide');
         button.classList.add('show');
-        },1000);
-        contenitoreTimer.push(new Timer());
-        if(tipoTimer){//viene impostata la tecnica del pomodoro
+    }, 1000);
+    contenitoreTimer.push(new Timer());
+    if (tipoTimer) {//viene impostata la tecnica del pomodoro
+        contenitoreTimer[i].setHour(0);
+        contenitoreTimer[i].setMinute(25);
+        contenitoreTimer[i].setSecond(0);
+    }
+    else {//altrimenti viene chiesto all'utente
+        //mediante input di inserire un timer
+        if (hour == '') {
             contenitoreTimer[i].setHour(0);
-            contenitoreTimer[i].setMinute(25);
+        }
+        else {
+            contenitoreTimer[i].setHour(hour);
+        }
+        if (minute == '') {
+            contenitoreTimer[i].setMinute(0);
+        } else {
+            contenitoreTimer[i].setMinute(minute);
+        }
+        if (second == '') {
             contenitoreTimer[i].setSecond(0);
+        } else {
+            contenitoreTimer[i].setSecond(second);
         }
-        else{//altrimenti viene chiesto all'utente
-            //mediante input di inserire un timer
-            if(hour==''){
-                contenitoreTimer[i].setHour(0);
-            }
-            else{
-                contenitoreTimer[i].setHour(hour);
-            }
-                if(minute==''){
-                contenitoreTimer[i].setMinute(0);
-            }else{
-                contenitoreTimer[i].setMinute(minute);
-            }
-            if(second==''){
-                contenitoreTimer[i].setSecond(0);
-            }else{
-                contenitoreTimer[i].setSecond(second);
-            }
-        }
-        contenitoreTimer[i].start();
-        i++;
+    }
+    contenitoreTimer[i].start();
+    i++;
 }
 
-startTomato.addEventListener('click',()=>{
+startTomato.addEventListener('click', () => {
     //slide();
     firstChoice.classList.add('hide');
     partiTimer(true);
-    
-    
+
+
 })
 
 startTimer.addEventListener('click', () => {
-    hour=document.querySelector('#setHour').value;
-    minute=document.querySelector('#setMinute').value;
-    second=document.querySelector('#setSecond').value;
+    hour = document.querySelector('#setHour').value;
+    minute = document.querySelector('#setMinute').value;
+    second = document.querySelector('#setSecond').value;
 
-    if(hour=='' && minute=='' && second==''){
+    if (hour == '' && minute == '' && second == '') {
         errorTimer.classList.remove('hide');
         errorTimer.classList.add('show');
 
     }
-    else{
+    else {
         errorTimer.classList.remove('show');
-        errorTimer.classList.add('hide');  
+        errorTimer.classList.add('hide');
         startTimer.classList.add('hide');
         setTimer.classList.add('hide');
         partiTimer(false);
     }
 })
 
-createTimer.addEventListener('click',()=>{
+createTimer.addEventListener('click', () => {
     firstChoice.classList.add('hide');
     setTimer.classList.remove('hide');
-    
-})
-
-pauseTimer.addEventListener('click',()=>{
-    if(contenitoreTimer[i-1].getStatusTimer()!=null){
-        pauseTimer.innerText='RESTART';
-        contenitoreTimer[i-1].stopAndPause();
-    }
-    else{
-        pauseTimer.innerText='PAUSE';
-        contenitoreTimer[i-1].start();
-    }
 
 })
 
-stopTimer.addEventListener('click',()=>{
-    contenitoreTimer[i-1].stopAndPause();
+pauseTimer.addEventListener('click', () => {
+    if (contenitoreTimer[i - 1].getStatusTimer() != null) {
+        pauseTimer.innerText = 'RESTART';
+        contenitoreTimer[i - 1].stopAndPause();
+    }
+    else {
+        pauseTimer.innerText = 'PAUSE';
+        contenitoreTimer[i - 1].start();
+    }
+
+})
+
+stopTimer.addEventListener('click', () => {
+    contenitoreTimer[i - 1].stopAndPause();
     countDown.classList.add('hideCountDown');
     countDown.classList.remove('showCountDown');
     button.classList.add('hide');
     button.classList.remove('show');
     firstChoice.classList.remove('hide');
-})
-
-navRecentTimer.addEventListener('click',()=>{
-    countDown.classList.add('hideCountDown');
-    button.classList.add('hide');
-    firstChoice.classList.remove('add');
 })
