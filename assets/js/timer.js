@@ -259,3 +259,7 @@ stopTimer.addEventListener('click',()=>{
     button.classList.remove('show');
     firstChoice.classList.remove('hide');
 })
+
+navRecentTimer.addEventListener('click',()=>{
+    
+})
