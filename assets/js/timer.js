@@ -29,7 +29,7 @@ class Timer {
     minute = 0;
     second = 0;
     count;
-    startTimer = false;
+    statusTimer = false;
 
     //Invocazione del metodo costruttore
     constructor(hour = 0, minute = 0, second = 0) {
@@ -90,17 +90,17 @@ class Timer {
      * Metodo per sapere se il timer e' partito o no
      * @returns {count}
      */
-    getStartTimer(){return this.count;}
+    getStatusTimer(){return this.count;}
 
     //Metodo per far partire il timer
     start() {
-        this.startTimer = true;
+        this.statusTimer = true;
         this._iniziaContare();
     }
 
     //Metodo che si preoccupa di far partire effettivamente il timer
     _iniziaContare() {
-        if (this.startTimer) {
+        if (this.statusTimer) {
             this.count = setInterval(() => {
                 this._mostraTimer();
                 if (this.second > 0) {
@@ -127,7 +127,7 @@ class Timer {
 
     //Metodo per far fermare il timer
     stopAndPause() {
-        this.startTimer = false;
+        this.statusTimer = false;
         this._fermaContare();
     }
 
@@ -221,7 +221,7 @@ startTimer.addEventListener('click', () => {
 })
 
 pauseTimer.addEventListener('click',()=>{
-    if(contenitoreTimer[i-1].getStartTimer()!=null){
+    if(contenitoreTimer[i-1].getStatusTimer()!=null){
         pauseTimer.innerText='RESTART';
         contenitoreTimer[i-1].stopAndPause();
     }
