@@ -221,6 +221,11 @@ startTimer.addEventListener('click', () => {
     }
 })
 
+createTimer.addEventListener('click',()=>{
+    firstChoice.classList.add('hide');
+    
+})
+
 pauseTimer.addEventListener('click',()=>{
     if(contenitoreTimer[i-1].getStatusTimer()!=null){
         pauseTimer.innerText='RESTART';
