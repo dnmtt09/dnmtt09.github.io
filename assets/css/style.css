@@ -15,6 +15,7 @@ button{
    text-align:center;
    border:2px solid white;
    border-radius:10px; 
+   background: transparent;
 }
 
 .hide{
@@ -45,6 +46,7 @@ button{
 img{
     width:50%;
     height:50%;
+    padding-top:20px;
 }
 
 
@@ -60,6 +62,17 @@ section .row{
 .slidedown {
     height: 30px;
 }
+
+@media screen and (min-width:380px){
+    .impostaTimer{
+        display:block;
+    }
+    button{
+        padding: 20px 40px;
+        margin: 10px -30px;
+    }
+}
+
 
 @media screen and (min-width:800px){
     .flex-container {
@@ -81,8 +94,6 @@ section .row{
 
 }
 
-@media screen and (min-width:380px){
-    .impostaTimer{
-        display:block;
-    }
+@media screen and (min-width:1024px){
+    
 }
