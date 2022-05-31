@@ -17,6 +17,9 @@ button{
    border-radius:10px; 
    background: transparent;
 }
+#createTimer{
+    padding: 20px 37px;
+}
 
 .hide{
     display: none;
@@ -45,7 +48,6 @@ button{
 
 img{
     width:50%;
-    height:50%;
     padding-top:20px;
 }
 
@@ -65,11 +67,34 @@ section .row{
 
 @media screen and (min-width:380px){
     .impostaTimer{
-        display:block;
+        
+        padding:0px 0px;
     }
     button{
         padding: 20px 40px;
-        margin: 10px -30px;
+        margin: 10px -35px;
+    }
+    .rightArrow{
+        margin-right:50px;
+    }
+    .leftArrow{
+        margin-left:45px;
+    }
+    section .row{
+        position: relative;
+        right:2px;
+        bottom:30px;
+    }
+    .firstChoice{
+        padding:0px 0px;
+
+    }
+    p{
+        font-size: 2rem;
+    }
+    h1{
+        font-size:7rem;
+        margin: 0px 10px;
     }
 }
 
@@ -97,3 +122,4 @@ section .row{
 @media screen and (min-width:1024px){
     
 }
+
