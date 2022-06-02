@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description"
-        content="Mini applicativo usando html css javascript nativo 
+    <meta name="description" content="Mini applicativo usando html css javascript nativo 
         di un timer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -40,23 +39,33 @@
             <h1>Tomato Timer</h1>
         </section>
 
-        <section  class="initialize">
-
+        <section class="initialize">
+            <p id="tomatoParagraph" class="hide"></p>
             <aside id="setTimer" class="hide">
-                <label for="setHour">Hour</label>
-                <input type="number" id="setHour">
+                <div class="input-group input-group-sm mb-3">
+                    <span for="setHour" class="input-group-text" id="inputGroup-sizing-sm">Hours</span>
+                    <input type="number" id="setHour" value="0" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <span for="setMinute" class="input-group-text" id="inputGroup-sizing-sm">Minutes</span>
+                    <input type="number" id="setMinute" value="0" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm">
+                </div>
 
-                <label for="setMinute">Minute</label>
-                <input type="number" id="setMinute">
-
-                <label for="setSecond">Second</label>
-                <input type="number" id="setSecond">
+                <div class="input-group input-group-sm mb-3">
+                    <span for="setSecond" class="input-group-text" id="inputGroup-sizing-sm">Seconds</span>
+                    <input type="number" id="setSecond" value="0" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm">
+                </div>
+                <aside class="hideError">
+                    <p class="error alert-danger">Errore. Inserire timer</p>
+                </aside>
 
                 <button id="startTimer">Set new Timer!</button>
+                <button id="cancel">CANCEL</button>
 
-                <aside class="hideError">
-                    <p class="alert-danger text-center m-5 p-5">Errore. Inserire timer</p>
-                </aside>
+                
             </aside>
 
             <section class="container" id="timer">
@@ -79,31 +88,37 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <button id="pause">PAUSE</button>
+                            <button id="home">HOME</button>
                         </div>
                         <div class="col-sm-6">
                             <button id="stop">STOP</button>
+                            <button id="restart">RESTART</button>
+                        </div>
+                        <div class="col-sm-6 hide">
+                            <button id="cancel">CANCEL</button>
                         </div>
                     </div>
                 </section>
             </section>
 
+
             <section class=" row firstChoice">
                 <div class=" col-sm-6">
-                    <div class="row">
+                    <div class="row first">
                         <p>Set a Tomato</p>
                         <div class="col-4">
                             <img src="assets/img/freccie/maggiore.png" class="rightArrow" alt="freccia di sinistra">
                         </div>
                         <div class="col-4">
-                            <button id="startTomato" >START</button>
+                            <button id="startTomato">START</button>
                         </div>
                         <div class="col-4">
-                            <img src="assets/img/freccie/minore.png"  class="leftArrow" alt="freccia di destra">
+                            <img src="assets/img/freccie/minore.png" class="leftArrow" alt="freccia di destra">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="row">
+                    <div class="row second">
                         <p>Set new Timer</p>
                         <div class="col-4">
                             <img src="assets/img/freccie/maggiore.png" class="rightArrow" alt="freccia di sinistra">
@@ -123,8 +138,8 @@
 
     <footer class="text-center">
         <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            <small class="text-dark">© 2020 Created by Daniele Matta</small>
+        <div class="text-center p-5" style="background-color: rgba(0, 0, 0, 0.2);">
+            <small class="text-dark">© 2022 Created by Daniele Matta</small>
         </div>
         <!-- Copyright -->
     </footer>
