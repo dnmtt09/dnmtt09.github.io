@@ -93,8 +93,10 @@ dove viene inserito il timer
 }
 
 
-.initialize aside>button {
+.initialize #setTimer>button {
+    margin: 0px 10px;
     margin-top: 55px;
+    
 }
 
 img {
@@ -120,6 +122,11 @@ classi delle freccie
     position: relative;
     margin-right: 50px;
     animation: effectRight 3s;
+}
+
+.error {
+    padding: 70px 10px;
+    margin-top: 50px;
 }
 
 /*
@@ -187,12 +194,8 @@ media query
         margin-bottom: 10px;
     }
 
-    .error {
-        padding: 70px 10px;
-        margin-top: 50px;
-    }
 
-    .initialize aside {
+    .initialize #setTimer {
         padding-top: 80px;
 
     }
@@ -207,18 +210,13 @@ media query
         left: 30px;
     }
 
-    #cancel {
-        display: block;
-        margin-left: 25px;
-    }
-
     footer {
         padding-top: 5rem;
     }
 }
 
 @media screen and (min-width:480px) {
-    .initialize aside {
+    .initialize #setTimer {
         padding: 0px 50px;
         padding-top: 80px;
 
@@ -230,8 +228,10 @@ media query
         margin-bottom: 100px;
     }
 
-    #cancel {
-        display: block;
+
+    .error {
+        padding: 70px 10px;
+        margin-top: 50px;
     }
 }
 
@@ -247,7 +247,7 @@ media query
 
     }
 
-    .initialize aside {
+    .initialize #setTimer {
         padding: 0px 100px;
         padding-top: 80px;
 
@@ -258,22 +258,8 @@ media query
         top: 0px;
     }
 
-    #cancel {
-        margin-left: 35px;
-    }
 }
 
-@media screen and (min-width:680px) {
-    #cancel {
-        margin-left: 80px;
-    }
-}
-
-@media screen and (min-width:780px) {
-    #cancel {
-        margin-left: 130px;
-    }
-}
 
 @media screen and (min-width:800px) {
     p {
@@ -285,7 +271,7 @@ media query
 
     }
 
-    .initialize aside {
+    .initialize #setTimer {
         padding: 0px 150px;
 
 
@@ -305,17 +291,13 @@ media query
         left: 400px;
     }
 
-    #cancel {
-        margin-left: 130px;
+    .error {
+        padding: 70px 10px;
+        margin-top: 50px;
     }
 
 }
 
-@media screen and (min-width:980px){
-    #cancel {
-        margin-left: 180px;
-    }
-}
 
 @media screen and (min-width:1024px) {
     p {
