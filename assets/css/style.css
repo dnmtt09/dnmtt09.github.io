@@ -5,15 +5,24 @@ h1 {
     padding: 0px;
 }
 
-.tomatoGreenWallpaper{
+/*
+impostare sfondo verde
+*/
+.tomatoGreenWallpaper {
     background: linear-gradient(rgb(192, 216, 192), rgb(61, 195, 61), white 100%);
 }
 
-.tomatoRedWallpaper{
+/*
+impostare sfondo rosso
+*/
+.tomatoRedWallpaper {
     background: linear-gradient(rgb(241, 169, 169), rgb(123, 23, 23), white 100%);
 }
 
-#tomatoParagraph{
+/*
+impostare paragrafo che mostra status timer
+*/
+#tomatoParagraph {
     text-align: center;
     font-size: 150%;
     text-decoration: underline;
@@ -35,14 +44,18 @@ button {
     left: 50px;
 }
 
-#home{
-    left:550px;
+#home {
+    left: 550px;
 }
 
 #createTimer {
     padding: 20px 37px;
 }
 
+/*
+classi per cancellare, reinserire,
+nascondere e mostrare gli elementi html
+*/
 .hide {
     display: none;
 }
@@ -60,6 +73,11 @@ button {
     visibility: hidden;
 }
 
+
+/*
+riquadro centrale e principale
+dove viene inserito il timer
+*/
 .initialize {
     border: 2px solid white;
     border-radius: 10px;
@@ -88,6 +106,10 @@ section .row {
     position: relative;
 }
 
+/*
+classi delle freccie
+*/
+
 .leftArrow {
     position: relative;
     margin-left: 45px;
@@ -99,6 +121,11 @@ section .row {
     margin-right: 50px;
     animation: effectRight 3s;
 }
+
+/*
+keyframes per creare l'effetto delle freccie 
+che si muovono
+*/
 
 @keyframes effectLeft {
     from {
@@ -122,6 +149,10 @@ section .row {
     }
 }
 
+/*
+media query
+*/
+
 @media screen and (min-width:380px) {
     .impostaTimer {
 
@@ -142,10 +173,6 @@ section .row {
         bottom: 30px;
     }
 
-    /*.firstChoice{
-        padding:0px 0px;
-
-    }*/
     p {
         font-size: 2rem;
     }
@@ -169,22 +196,24 @@ section .row {
         padding-top: 80px;
 
     }
-    #home{
-        top:100px;
-        left:-35px;
-        margin-bottom:100px;
+
+    #home {
+        top: 100px;
+        left: -35px;
+        margin-bottom: 100px;
     }
 
-    .pauseCenter{
-        left:30px;
+    .pauseCenter {
+        left: 30px;
     }
-    
-    #cancel{
-        display:block;
+
+    #cancel {
+        display: block;
         margin-left: 25px;
     }
-    footer{
-        padding-top:5rem;
+
+    footer {
+        padding-top: 5rem;
     }
 }
 
@@ -194,14 +223,15 @@ section .row {
         padding-top: 80px;
 
     }
-    #home{
-        top:100px;
-        left:-35px;
-        margin-bottom:100px;
+
+    #home {
+        top: 100px;
+        left: -35px;
+        margin-bottom: 100px;
     }
 
-    #cancel{
-        display:block;
+    #cancel {
+        display: block;
     }
 }
 
@@ -222,25 +252,26 @@ section .row {
         padding-top: 80px;
 
     }
-    #home{
-        left:200px;
-        top:0px;
+
+    #home {
+        left: 200px;
+        top: 0px;
     }
 
-    #cancel{
-        margin-left:35px;
+    #cancel {
+        margin-left: 35px;
     }
 }
 
 @media screen and (min-width:680px) {
-    #cancel{
-        margin-left:80px;
+    #cancel {
+        margin-left: 80px;
     }
 }
 
 @media screen and (min-width:780px) {
-    #cancel{
-        margin-left:130px;
+    #cancel {
+        margin-left: 130px;
     }
 }
 
@@ -269,12 +300,13 @@ section .row {
         margin-left: 45px;
         bottom: 20px;
     }
-    #home{
-        left:400px;
+
+    #home {
+        left: 400px;
     }
 
-    #cancel{
-        margin-left:170px;
+    #cancel {
+        margin-left: 170px;
     }
 
 }
@@ -298,11 +330,12 @@ section .row {
         margin-left: 45px;
         bottom: 30px;
     }
-    #home{
-        left:500px;
+
+    #home {
+        left: 500px;
     }
-    #cancel{
-        margin-left:420px;
+
+    #cancel {
+        margin-left: 420px;
     }
 }
-
