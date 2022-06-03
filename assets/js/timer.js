@@ -42,11 +42,11 @@ homeTimer.classList.add("hide");
 */
 tomatoParagraph = document.querySelector("#tomatoParagraph");
 
+//All'inizio aggiungo questa classe per rendere lo sfondo verde
 document.body.classList.add("tomatoRedWallpaper");
 
 //Creazione variabile per le istanze dell'oggetto Timer.
 var contenitoreTimer;
-var i = 0;
 
 /*
     Variabile globale che uso per sapere
@@ -186,34 +186,42 @@ class Timer {
         * Se tipoTimer viene impostato a true
         * mostra la scritta work
         * altrimenti non mette nulla (questo per evitare che quando
-        * viene inserito l'etichetta relax non compaia l'etichetta work)
+        * venga inserita l'etichetta 'relax' non compaia l'etichetta 'work')
     */
     start(tipoTimer) {
         tomatoParagraph.classList.remove("hide");
         if (tipoTimer) {
-            if(!this.#tomatoType){
+            if (!this.#tomatoType) {
                 tomatoParagraph.innerText = "WORK";
             }
-            else{
+            else {
                 tomatoParagraph.innerText = "RELAX";
             }
         }
-        else{
+        else {
             tomatoParagraph.innerText = "WORK";
         }
         this.#mostraTimer();
+        //parte il conto alla rovescia
         this.#count = setInterval(() => {
-            this.#mostraTimer();
-            document.title=this.#hour+":"+this.#minute+":"+this.#second;
-            if (this.#expiredTimer()) {
-                document.title="Tomato Timer";
-                if(tipoTimer){
+            this.#mostraTimer();//stampa status timer
+            //nel title della pagina viene mostrato il tempo rimanente
+            document.title = this.#hour + ":" + this.#minute + ":" + this.#second;
+            if (this.#expiredTimer()) {//se il timer è scaduto allora
+                document.title = "Tomato Timer";
+                /*
+                    se la variabile tipoTimer è impostata a true
+                    viene stoppato il pomodoro
+                    altrimenti il timer personalizzato dall'utente
+                */
+                if (tipoTimer) {
                     this.stopTomato();
                 }
-                else{
+                else {
                     this.stopTimer();
                 }
-                this.#playMusic();
+                this.#playMusic();//quando termina uno dei due timer
+                //viene riprodotta una suoneria
             }
             if (this.#second > 0) {
                 this.#second--;
@@ -233,7 +241,10 @@ class Timer {
         }, 1000)
     }
 
-    #playMusic(){
+    /**
+     * Metodo privato per far partire la musica
+     */
+    #playMusic() {
         const music = new Audio('assets/sound/timerScaduto.mp3');
         music.play();
     }
@@ -242,24 +253,24 @@ class Timer {
         * Metodo per bloccare il timer scelto dall'utente
      */
     stopTimer() {
-        
+
         this.stopAndPause();
-        
+
         if (this.#expiredTimer()) {
             startTimer.classList.remove("hide");
-            home();       
+            home();
         }
     }
 
     /**
-     * Metodo per bloccare il timer. Se è stato selezionato
-     * la tecnica pomodoro (25 minuti di lavoro e 5 minuti di pausa)
-     * viene attivata la prima condizione. (25 minuti schermo rosso
-     * 5 minuti schermo verde)
+     * Metodo per bloccare il timer (pomodoro). Se il timer è scaduto
+     * (i 25 minuti) entra nel primo caso (quindi tomatoType di default è
+     * impostato a false) e vengono impostati in automatico 5 minuti
+     * (con sfondo verde).
      * Quando terminano i 5 minuti, il timer viene impostato su 25 minuti
      * e lo sfondo viene reimpostato sul colore rosso.
      */
-    stopTomato(){
+    stopTomato() {
         this.stopAndPause();
 
         if (this.#expiredTimer()) {
@@ -271,8 +282,8 @@ class Timer {
 
                 this.#hour = 0;
                 this.#minute = 0;
-                    this.#second = 5;
-                    this.start(true);
+                this.#second = 5;
+                this.start(true);
 
             }
             else if (this.#tomatoType) {
@@ -290,7 +301,7 @@ class Timer {
                 this.#tomatoType = false;
             }
         }
-        else{
+        else {
             document.body.classList.add("tomatoRedWallpaper");
             document.body.classList.remove("tomatoGreenWallpaper");
         }
@@ -316,7 +327,7 @@ class Timer {
      * timer smette di funzionare.
      */
     stopAndPause() {
-        document.title="Tomato Timer";
+        document.title = "Tomato Timer";
         clearInterval(this.#count);
         this.#count = null;
     }
@@ -385,7 +396,13 @@ function partiTimer(tipoTimer) {
     }
 }
 
-function showErrorTimer(){
+/*
+    Funzione che se viene invocata
+    mostra un tentativo errato
+    (da parte dell'utente)
+    di inserire un timer
+*/
+function showErrorTimer() {
     errorTimer.classList.remove('hide');
     errorTimer.classList.add('show');
     setTimeout(() => {
@@ -409,15 +426,17 @@ startTimer.addEventListener('click', () => {
     hour = document.querySelector('#setHour').value;
     minute = document.querySelector('#setMinute').value;
     second = document.querySelector('#setSecond').value;
+
     /*
-    (hour == '' || minute == '' || second == '') ||
-     (hour == '0' && minute == '0' && second == '0') ||
-     */
-    if((hour == '' || minute == '' || second == '') ||
-       (hour == '0' && minute == '0' && second == '0') ||
-       (parseInt(hour)<0 || parseInt(hour)>24 ) || 
-       (parseInt(minute)<0 || parseInt(minute)>59 ) || 
-       (parseInt(second)<0 || parseInt(second)>59 )){
+        se ci sono errori durante l'inserimento del timer
+        viene visualizzato il messaggio di errore,
+        altrimenti il timer parte
+    */
+    if ((hour == '' || minute == '' || second == '') ||
+        (hour == '0' && minute == '0' && second == '0') ||
+        (parseInt(hour) < 0 || parseInt(hour) > 24) ||
+        (parseInt(minute) < 0 || parseInt(minute) > 59) ||
+        (parseInt(second) < 0 || parseInt(second) > 59)) {
         showErrorTimer();
     }
     else {
@@ -450,10 +469,10 @@ pauseTimer.addEventListener('click', () => {
         pauseTimer.innerText = 'PAUSE';
         restartTimer.classList.add("hide");
         stopTimer.classList.remove("hide");
-        if(tipoTimerSelezionato){
+        if (tipoTimerSelezionato) {
             contenitoreTimer.start(true);
         }
-        else{
+        else {
             contenitoreTimer.start(false);
         }
     }
@@ -474,17 +493,17 @@ restartTimer.addEventListener("click", () => {
 //Pulsante per far fermare il timer
 stopTimer.addEventListener('click', () => {
     startTimer.classList.remove("hide");
-    hour.innerText=0;
-    minute.innerText=0;
-    second.innerText=0;
-    if(tipoTimerSelezionato){
+    hour.innerText = 0;
+    minute.innerText = 0;
+    second.innerText = 0;
+    if (tipoTimerSelezionato) {
         contenitoreTimer.stopTomato();
     }
-    else{
+    else {
         contenitoreTimer.stopTimer();
     }
     home();
-    
+
 })
 
 //Pulsante per cancellare il timer
