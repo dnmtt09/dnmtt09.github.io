@@ -313,7 +313,7 @@ media query
 
 @media screen and (min-width:980px){
     #cancel {
-        margin-left: 170px;
+        margin-left: 180px;
     }
 }
 
