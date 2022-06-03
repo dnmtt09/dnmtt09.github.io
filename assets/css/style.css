@@ -306,9 +306,15 @@ media query
     }
 
     #cancel {
-        margin-left: 170px;
+        margin-left: 130px;
     }
 
+}
+
+@media screen and (min-width:980px){
+    #cancel {
+        margin-left: 170px;
+    }
 }
 
 @media screen and (min-width:1024px) {
@@ -336,6 +342,6 @@ media query
     }
 
     #cancel {
-        margin-left: 420px;
+        margin-left: 230px;
     }
 }
