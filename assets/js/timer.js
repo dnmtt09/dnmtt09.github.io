@@ -207,7 +207,8 @@ class Timer {
         this.#count = setInterval(() => {
             this.#mostraTimer();//stampa status timer
             //nel title della pagina viene mostrato il tempo rimanente
-            document.title = this.#hour + ":" + this.#minute + ":" + this.#second;
+            document.title = this.#hour +
+                ":" + this.#minute + ":" + this.#second;
             if (this.#expiredTimer()) {//se il timer è scaduto allora
                 document.title = "Tomato Timer";
                 /*
@@ -232,7 +233,9 @@ class Timer {
                 }
                 if (this.#minute > 0 && this.#second == 59) {
                     this.#minute--;
-                } else if (this.#minute == 0 && this.#second == 59 && this.#hour > 0) {
+                } else if (this.#minute == 0 &&
+                    this.#second == 59 &&
+                    this.#hour > 0) {
                     this.#minute = 59;
                 }
                 if (this.#hour > 0 && this.#minute == 59) {
@@ -300,7 +303,7 @@ class Timer {
                 this.setSecond(0);
                 this.#tomatoType = false;
                 this.#mostraTimer();
-                
+
             }
         }
         else {
@@ -372,8 +375,8 @@ function partiTimer(tipoTimer) {
 
     if (tipoTimer) {//viene impostata la tecnica del pomodoro
         contenitoreTimer.setHour(0);
-        contenitoreTimer.setMinute(0);
-        contenitoreTimer.setSecond(10);
+        contenitoreTimer.setMinute(25);
+        contenitoreTimer.setSecond(0);
         contenitoreTimer.start(true);
     }
     else {//altrimenti viene chiesto all'utente
