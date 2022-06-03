@@ -1,3 +1,4 @@
+
 //Dichiarazione variabili html.
 countDown = document.querySelector('#timer');
 h = document.querySelector('#hour');
@@ -280,25 +281,26 @@ class Timer {
                 document.body.classList.add("tomatoGreenWallpaper");
                 tomatoParagraph.innerText = "RELAX";
 
-                this.#hour = 0;
-                this.#minute = 0;
-                this.#second = 5;
+                this.setHour(0);
+                this.setMinute(5);
+                this.setSecond(0);
                 this.start(true);
 
             }
             else if (this.#tomatoType) {
-                this.#hour = 0;
-                this.#minute = 25;
-                this.#second = 0;
                 tomatoParagraph.innerText = "PAUSE";
                 document.body.classList.add("tomatoRedWallpaper");
                 document.body.classList.remove("tomatoGreenWallpaper");
-                this.#mostraTimer();
                 pauseTimer.innerText = 'START';
                 pauseTimer.classList.add("pauseCenter");
                 stopTimer.classList.add("hide");
                 homeTimer.classList.remove("hide");
+                this.setHour(0);
+                this.setMinute(25);
+                this.setSecond(0);
                 this.#tomatoType = false;
+                this.#mostraTimer();
+                
             }
         }
         else {
@@ -515,3 +517,5 @@ cancelTimer.addEventListener('click', () => {
 homeTimer.addEventListener('click', () => {
     home();
 })
+
+
